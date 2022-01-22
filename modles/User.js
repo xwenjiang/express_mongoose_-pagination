@@ -8,6 +8,7 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
   username: String,
   age: Number,
+  avatar:String
 });
 
 const User = mongoose.model("User", UserSchema);

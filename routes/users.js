@@ -8,7 +8,7 @@ var router = express.Router();
 router.get("/getuser", async function (req, res) {
   let page = req.query.page;
   let limit = req.query.pageSize || 5;
-  
+  console.log(`page:${page} and pagesize:${limit}`)
   User.find({},function (err, data) {
     if(err) return res.status(500).json({
         result: 1,

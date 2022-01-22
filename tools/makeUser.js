@@ -6,6 +6,7 @@ var Random = Mock.Random;
     await User.create({
       username: Random.cname(),
       age: Random.integer(18, 100),
+      avatar:'https://picsum.photos/id/237/200/300'
     });
   }
 })();
