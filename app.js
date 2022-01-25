@@ -9,9 +9,10 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 const corsConfig = {
   origin: "*",
+  
 };
 var app = express();
-require("./tools/makeUser");
+//require("./tools/makeUser");
 app.use(cors(corsConfig));
 // view engine setup
 app.set("views", path.join(__dirname, "views"));

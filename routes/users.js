@@ -55,6 +55,13 @@ router.post("/deleteuser", async (req, res) => {
     ? res.json({ status: "1", data: result, message: "completed" })
     : res.json({ status: "0", data: null, message: "error" });
 });
-/* GET users listing. */
+router.post("/adduser", async (req, res) => {
+  const { username, age, avatar } = req.body;
+  console.log('age',age)
+  const result = await User.create({ username, age, avatar });
+  result._id
+    ? res.json({ status: "1", data: result, message: "completed" })
+    : res.json({ status: "0", data: null, message: "error" });
+});
 
 module.exports = router;
