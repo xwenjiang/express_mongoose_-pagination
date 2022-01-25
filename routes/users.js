@@ -2,7 +2,7 @@ var express = require("express");
 const User = require("../modles/User");
 const db = require("../db/connection");
 const nanoid = require("nanoid").nanoid;
-const { json } = require("express/lib/response");
+const passport = require('passport')
 var router = express.Router();
 
 // 获取文章列表
@@ -56,12 +56,17 @@ router.post("/deleteuser", async (req, res) => {
     : res.json({ status: "0", data: null, message: "error" });
 });
 router.post("/adduser", async (req, res) => {
-  const { username, age, avatar } = req.body;
-  console.log('age',age)
-  const result = await User.create({ username, age, avatar });
+  const { username, age, avatar, password } = req.body;
+  const pass = password || "password";
+  console.log("pass:",pass)
+  const result = await User.create({ username:username,password:pass,age:age,avatar:avatar?avatar:'https://picsum.photos/200/300.jpg' });
+  console.log('reuslt',result)
   result._id
     ? res.json({ status: "1", data: result, message: "completed" })
     : res.json({ status: "0", data: null, message: "error" });
+});
+router.post("/login", passport.authenticate("local"), (req, res) => {
+  res.status(200).json(req.isAuthenticated());
 });
 
 module.exports = router;

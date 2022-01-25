@@ -10,11 +10,16 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-mongodb-session": "^3.2.0",
+    "express-mysql-session": "^2.1.7",
+    "express-session": "^1.17.2",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "mockjs": "^1.1.0",
     "mongoose": "^6.1.7",
     "morgan": "~1.9.1",
-    "nanoid": "^3.2.0"
+    "nanoid": "^3.2.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0"
   }
 }

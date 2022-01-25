@@ -15,4 +15,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB 连接错误：'))
 
 
-module.exports = db;
+module.exports = {
+  db:db,
+  mongoDB:mongoDB
+}
